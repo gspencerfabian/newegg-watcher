@@ -1,0 +1,17 @@
+{
+	"items": [
+		"<NEWEGG ITEM NUMBER>",
+		"<NEWEGG ITEM NUMBER>",
+		"<NEWEGG ITEM NUMBER>",
+		"<NEWEGG ITEM NUMBER>"
+	],
+	"email": {
+		"receiver": {
+			"address": "<RECEIVER EMAIL ADDRESS>"
+		},
+		"sender": {
+			"address": "<SENDER EMAIL ADDRESS>",
+			"password": "<SENDER EMAIL PASSWORD>"
+		}
+	}
+}
