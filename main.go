@@ -11,6 +11,7 @@ func init() {
 }
 
 func main() {
+	log.Println("Starting inventory search...")
 	// loop for items in config to build and execute http requests
 	for _, item := range config.Items {
 		web_url := "https://www.newegg.com/Product/Product.aspx?Item=" + item
@@ -40,6 +41,7 @@ func main() {
 			log.Println("[NOT IN STOCK] - " + web_url)
 		}
 	}
+	log.Println("Complete.")
 }
 
 type Payload struct {
