@@ -43,8 +43,8 @@ Modify config.json file
                         "address": "littlebobbytables2354@gmail.com"
                 },
                 "sender": {
-                        "address": "<sender_email>@gmail.com",
-                        "password": "<super_secret_pass>"
+                        "address": "<sender_gmail_email>@gmail.com",
+                        "password": "<sender_gmail_pass>"
                 }
         }
 }
