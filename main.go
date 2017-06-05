@@ -34,8 +34,8 @@ func main() {
 
 		// if its in stock then send email
 		if data.Basic.Instock {
-			sendMail(data.Basic.Title, web_url, data.Basic.FinalPrice)
 			log.Println("[IN STOCK] - " + web_url)
+			sendMail(data.Basic.Title, web_url, data.Basic.FinalPrice)
 		} else {
 			log.Println("[NOT IN STOCK] - " + web_url)
 		}
