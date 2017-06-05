@@ -3,9 +3,10 @@ package main
 import (
 	"log"
 	"net/smtp"
+	"strconv"
 )
 
-func sendMail(title, url, price string) {
+func sendMail(title, url, price string, total, limit int) {
 	from := config.Email.Sender.Address
 	pass := config.Email.Sender.Password
 	to := config.Email.Receiver.Address
@@ -13,8 +14,10 @@ func sendMail(title, url, price string) {
 	msg := "From: " + from + "\n" +
 		"To: " + to + "\n" +
 		"Subject: NEWEGG-WATCHER | IN STOCK!\n\n" +
-		"Title: " + title + "\n\n" +
-		"Price: " + price + "\n\n" +
+		"Title: " + title + "\n" +
+		"Price: " + price + "\n" +
+		"Limit: " + strconv.Itoa(limit) + "\n" +
+		"Total: " + strconv.Itoa(total) + "\n" +
 		"Url: " + url + "\n\n\n\n\n" +
 		"sent using https://github.com/gspencerfabian/newegg-watcher"
 

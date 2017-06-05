@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 func init() {
@@ -47,8 +48,8 @@ func main() {
 
 		// if its in stock then send email
 		if data.Basic.Instock {
-			log.Println("[IN STOCK] - " + web_url)
-			sendMail(data.Basic.Title, web_url, data.Basic.FinalPrice)
+			log.Println("[IN STOCK] - " + strconv.Itoa(data.Basic.SellerCount) + " total. " + strconv.Itoa(data.Additional.LimitQuantity) + " limit per person. " + web_url)
+			sendMail(data.Basic.Title, web_url, data.Basic.FinalPrice, data.Basic.SellerCount, data.Additional.LimitQuantity)
 		} else {
 			log.Println("[NOT IN STOCK] - " + web_url)
 		}
@@ -63,19 +64,9 @@ type Payload struct {
 		FinalPrice       string `json:"FinalPrice"`
 		ItemNumber       string `json:"ItemNumber"`
 		NeweggItemNumber string `json:"NeweggItemNumber"`
-		ItemImages       []struct {
-			FullPath           interface{} `json:"FullPath"`
-			ItemNumber         interface{} `json:"ItemNumber"`
-			PathSize100        string      `json:"PathSize100"`
-			PathSize125        string      `json:"PathSize125"`
-			PathSize180        string      `json:"PathSize180"`
-			PathSize300        string      `json:"PathSize300"`
-			PathSize35         string      `json:"PathSize35"`
-			PathSize60         string      `json:"PathSize60"`
-			PathSize640        string      `json:"PathSize640"`
-			SmallImagePath     interface{} `json:"SmallImagePath"`
-			ThumbnailImagePath interface{} `json:"ThumbnailImagePath"`
-			Title              interface{} `json:"Title"`
-		} `json:"ItemImages"`
+		SellerCount      int    `json:"SellerCount"`
 	} `json:"Basic"`
+	Additional struct {
+		LimitQuantity    int `json:"LimitQuantity"`
+	} `json:"Additional"`
 }
