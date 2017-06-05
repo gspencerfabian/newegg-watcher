@@ -28,11 +28,22 @@ func main() {
 
 		resp, err := client.Do(req)
 		if err != nil {
-			log.Fatalln(err)
+			log.Println(err)
+			continue
+		} else if resp.StatusCode != 200 {
+			log.Println(item + " request error. Does " + web_url + " exist?")
+			continue
 		}
+
 		data := Payload{}
 		json.NewDecoder(resp.Body).Decode(&data)
 		defer resp.Body.Close()
+
+		// extra request error checking because newegg doesn't return anything other than 200s -_-
+		if data.Basic.Title == "" {
+			log.Println(item + " request error. Does " + web_url + " exist?")
+			continue
+		}
 
 		// if its in stock then send email
 		if data.Basic.Instock {
