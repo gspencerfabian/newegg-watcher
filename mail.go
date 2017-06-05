@@ -24,8 +24,9 @@ func sendMail(title, url, price string) {
 
 	if err != nil {
 		log.Printf("Email smtp error: %s", err)
-		return
 	} else {
 		log.Println("Email sent successfully.")
 	}
+
+	return
 }
