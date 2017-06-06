@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/smtp"
 	"strconv"
+	"strings"
 )
 
 func sendMail(title, url, price string, total, limit int) {
@@ -12,23 +13,23 @@ func sendMail(title, url, price string, total, limit int) {
 	to := config.Email.Receiver.Address
 
 	msg := "From: " + from + "\n" +
-		"To: " + to + "\n" +
+		"To: " + strings.Join(to, ", ") + "\n" +
 		"Subject: NEWEGG-WATCHER | IN STOCK!\n\n" +
+		"Url: " + url + "\n\n" +
 		"Title: " + title + "\n" +
 		"Price: " + price + "\n" +
 		"Limit: " + strconv.Itoa(limit) + "\n" +
-		"Total: " + strconv.Itoa(total) + "\n" +
-		"Url: " + url + "\n\n\n\n\n" +
+		"Total: " + strconv.Itoa(total) + "\n\n\n\n\n" +
 		"sent using https://github.com/gspencerfabian/newegg-watcher"
 
 	err := smtp.SendMail("smtp.gmail.com:587",
 		smtp.PlainAuth("", from, pass, "smtp.gmail.com"),
-		from, []string{to}, []byte(msg))
+		from, to, []byte(msg))
 
 	if err != nil {
 		log.Printf("Email smtp error: %s", err)
 	} else {
-		log.Println("Email sent successfully.")
+		log.Println("Email successfully sent to " + strings.Join(to, ", "))
 	}
 
 	return

@@ -1,17 +1,21 @@
 {
 	"items": [
-		"<NEWEGG ITEM NUMBER>",
-		"<NEWEGG ITEM NUMBER>",
-		"<NEWEGG ITEM NUMBER>",
-		"<NEWEGG ITEM NUMBER>"
+		"<NEWEGG_ITEM_NUMBER>",
+		"<NEWEGG_ITEM_NUMBER>",
+		"<NEWEGG_ITEM_NUMBER>",
+		"<NEWEGG_ITEM_NUMBER>"
 	],
-	"email": {
-		"receiver": {
-			"address": "<RECEIVER EMAIL ADDRESS>"
-		},
-		"sender": {
-			"address": "<SENDER EMAIL ADDRESS>",
-			"password": "<SENDER EMAIL PASSWORD>"
-		}
-	}
+        "email": {
+                "receiver": {
+                        "address": [
+				"<RECEIVER_EMAIL_ADDRESS_1>",
+				"<RECEIVER_EMAIL_ADDRESS_2>",
+				"<RECEIVER_EMAIL_ADDRESS_3>"
+                        ]
+                },
+                "sender": {
+                        "address": "<SENDER_GMAIL_ADDRESS>",
+                        "password": "<SENDER_GMAIL_PASSWORD>"
+                }
+        }
 }

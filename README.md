@@ -40,11 +40,15 @@ Modify config.json file
         ],
         "email": {
                 "receiver": {
-                        "address": "littlebobbytables2354@gmail.com"
+                        "address": [
+                                "jsmith@example.com",
+                                "5555555555@vtext.com",
+                                "5551234567@txt.att.net"
+                        ]
                 },
                 "sender": {
-                        "address": "<sender_gmail_email>@gmail.com",
-                        "password": "<sender_gmail_pass>"
+                        "address": "xxxxxx@gmail.com",
+                        "password": "xxxxxxxx"
                 }
         }
 }

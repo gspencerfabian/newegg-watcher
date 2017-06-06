@@ -24,7 +24,7 @@ func loadConfig(filename string) {
 type Config struct {
 	Email struct {
 		Receiver struct {
-			Address string `json:"address"`
+			Address []string `json:"address"`
 		} `json:"receiver"`
 		Sender struct {
 			Address  string `json:"address"`
