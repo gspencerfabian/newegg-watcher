@@ -47,7 +47,7 @@ func main() {
 		}
 
 		// if its in stock then send email
-		if data.Basic.Instock {
+		if data.Basic.Instock && data.Basic.AddToCartText == "Add To Cart" {
 			log.Println("[IN STOCK] - " + strconv.Itoa(data.Basic.SellerCount) + " total. " + strconv.Itoa(data.Additional.LimitQuantity) + " limit per person. " + web_url)
 			sendMail(data.Basic.Title, web_url, data.Basic.FinalPrice, data.Basic.SellerCount, data.Additional.LimitQuantity)
 		} else {
@@ -65,6 +65,7 @@ type Payload struct {
 		ItemNumber       string `json:"ItemNumber"`
 		NeweggItemNumber string `json:"NeweggItemNumber"`
 		SellerCount      int    `json:"SellerCount"`
+		AddToCartText    string `json:"AddToCartText"`
 	} `json:"Basic"`
 	Additional struct {
 		LimitQuantity    int `json:"LimitQuantity"`
