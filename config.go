@@ -22,14 +22,20 @@ func loadConfig(filename string) {
 }
 
 type Config struct {
+	Newegg struct {
+		Items []string `json:"items"`
+	} `json:"newegg"`
+	Bestbuy struct {
+		Items []string `json:"items"`
+		Apikey string `json:"apikey"`
+	} `json:"bestbuy"`
 	Email struct {
 		Receiver struct {
 			Address []string `json:"address"`
 		} `json:"receiver"`
 		Sender struct {
-			Address  string `json:"address"`
+			Address string `json:"address"`
 			Password string `json:"password"`
 		} `json:"sender"`
 	} `json:"email"`
-	Items []string `json:"items"`
 }

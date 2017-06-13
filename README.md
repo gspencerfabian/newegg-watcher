@@ -32,25 +32,35 @@ Modify config.json file
 
 ```
 {
-        "items": [
-                "N82E16813157746",
-                "N82E16819117728",
-                "N82E16835100007",
-                "N82E16835181103"
-        ],
-        "email": {
-                "receiver": {
-                        "address": [
-                                "jsmith@example.com",
-                                "5555555555@vtext.com",
-                                "5551234567@txt.att.net"
-                        ]
-                },
-                "sender": {
-                        "address": "xxxxxx@gmail.com",
-                        "password": "xxxxxxxx"
-                }
-        }
+	"newegg": {
+		"items": [
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>"
+		]
+	},
+	"bestbuy": {
+		"items": [
+			"<bestbuy_item_id>",
+			"<bestbuy_item_id>",
+			"<bestbuy_item_id>"
+		],
+		"apikey": "<your_bestbuy_api_key>"
+	},
+	"email": {
+		"receiver": {
+			"address": [
+				"<email>",
+				"<email>"
+			]
+		},
+		"sender": {
+			"address": "<sender_gmail>",
+			"password": "<sender_gmail_pass>"
+		}
+	}
 }
 ```
 

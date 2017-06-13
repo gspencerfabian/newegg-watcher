@@ -1,21 +1,42 @@
 {
-	"items": [
-		"<NEWEGG_ITEM_NUMBER>",
-		"<NEWEGG_ITEM_NUMBER>",
-		"<NEWEGG_ITEM_NUMBER>",
-		"<NEWEGG_ITEM_NUMBER>"
-	],
-        "email": {
-                "receiver": {
-                        "address": [
-				"<RECEIVER_EMAIL_ADDRESS_1>",
-				"<RECEIVER_EMAIL_ADDRESS_2>",
-				"<RECEIVER_EMAIL_ADDRESS_3>"
-                        ]
-                },
-                "sender": {
-                        "address": "<SENDER_GMAIL_ADDRESS>",
-                        "password": "<SENDER_GMAIL_PASSWORD>"
-                }
-        }
+	"newegg": {
+		"items": [
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>",
+			"<newegg_item_id>"
+		]
+	},
+	"bestbuy": {
+		"items": [
+			"<bestbuy_item_id>",
+			"<bestbuy_item_id>",
+			"<bestbuy_item_id>",
+			"<bestbuy_item_id>",
+			"<bestbuy_item_id>"
+		],
+		"apikey": "<your_bestbuy_api_key>"
+	},
+	"email": {
+		"receiver": {
+			"address": [
+				"<email>",
+				"<email>"
+			]
+		},
+		"sender": {
+			"address": "<sender_gmail>",
+			"password": "<sender_gmail_pass>"
+		}
+	}
 }

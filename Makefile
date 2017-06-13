@@ -1,6 +1,8 @@
+FOLDER = "whatever-watcher"
+
 build:
 	go build .
 run:
-	./newegg-watcher
+	./$(FOLDER)
 build-run:
-	go build . && ./newegg-watcher
+	go build . && ./$(FOLDER)
