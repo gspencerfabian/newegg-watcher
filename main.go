@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 func init() {
@@ -46,6 +47,18 @@ func main() {
 			continue
 		}
 
+		price_int, err := strconv.Atoi(strings.TrimPrefix(strings.Replace(strings.Split(data.Basic.FinalPrice, ".")[0], ",", "", -1), "$"))
+		log.Println(price_int)
+		if err != nil {
+			log.Println(err)
+		}
+
+		// make sure items meet price limits requirements
+		if price_int > config.Limits.Price.Max || price_int < config.Limits.Price.Min {
+			log.Println(data.Basic.FinalPrice + " does not meet price requirements. " + web_url)
+			continue
+		}
+
 		// if its in stock then send email
 		if data.Basic.Instock && data.Basic.AddToCartText == "Add To Cart" {
 			log.Println("[IN STOCK] - " + strconv.Itoa(data.Basic.SellerCount) + " total. " + strconv.Itoa(data.Additional.LimitQuantity) + " limit per person. " + web_url)
@@ -68,6 +81,6 @@ type Payload struct {
 		AddToCartText    string `json:"AddToCartText"`
 	} `json:"Basic"`
 	Additional struct {
-		LimitQuantity    int `json:"LimitQuantity"`
+		LimitQuantity int `json:"LimitQuantity"`
 	} `json:"Additional"`
 }

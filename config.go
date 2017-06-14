@@ -31,5 +31,11 @@ type Config struct {
 			Password string `json:"password"`
 		} `json:"sender"`
 	} `json:"email"`
-	Items []string `json:"items"`
+	Items  []string `json:"items"`
+	Limits struct {
+		Price struct {
+			Max int `json:"max"`
+			Min int `json:"min"`
+		} `json:"price"`
+	} `json:"limits"`
 }

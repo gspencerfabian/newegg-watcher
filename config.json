@@ -17,5 +17,11 @@
                         "address": "<SENDER_GMAIL_ADDRESS>",
                         "password": "<SENDER_GMAIL_PASSWORD>"
                 }
-        }
+        },
+	"limits": {
+		"price": {
+			"min": 100,
+			"max": 400
+		}
+	}
 }

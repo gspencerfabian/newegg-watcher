@@ -28,7 +28,8 @@ Modify path to point to your cloned repository
 ## configuration
 Modify config.json file 
  - items field: the newegg item number
- - email fields: sender/receiver email address.
+ - email fields: sender/receiver email address
+ - limits fields: set requirements like price min and max
 
 ```
 {
@@ -50,7 +51,13 @@ Modify config.json file
                         "address": "xxxxxx@gmail.com",
                         "password": "xxxxxxxx"
                 }
-        }
+        },
+	"limits": {
+		"price": {
+			"min": 100,
+			"max": 400
+		}
+	}
 }
 ```
 
