@@ -48,14 +48,13 @@ func main() {
 		}
 
 		price_int, err := strconv.Atoi(strings.TrimPrefix(strings.Replace(strings.Split(data.Basic.FinalPrice, ".")[0], ",", "", -1), "$"))
-		log.Println(price_int)
 		if err != nil {
 			log.Println(err)
 		}
 
 		// make sure items meet price limits requirements
 		if price_int > config.Limits.Price.Max || price_int < config.Limits.Price.Min {
-			log.Println(data.Basic.FinalPrice + " does not meet price requirements. " + web_url)
+			log.Println(data.Basic.FinalPrice + " does not meet price requirements. " + strconv.Itoa(data.Basic.SellerCount) + " in stock. " + web_url)
 			continue
 		}
 
